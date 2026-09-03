@@ -10,6 +10,7 @@ const CONFIG = Object.freeze({
 function doGet(event) {
   try {
     const params = event && event.parameter ? event.parameter : {};
+    if (params.action === 'submit') return submitStudent(params);
     if (params.action !== 'search') return jsonResponse({ success: false, code: 'VALIDATION_ERROR', message: 'Invalid request.' });
     const enrollment = validateEnrollment(params.enrollment);
     if (!enrollment) return jsonResponse({ success: false, code: 'VALIDATION_ERROR', message: 'Please enter a valid Enrollment Number.' });
@@ -20,9 +21,12 @@ function doGet(event) {
 }
 
 function doPost(event) {
+  return submitStudent(event && event.parameter ? event.parameter : {});
+}
+
+function submitStudent(params) {
   let lock;
   try {
-    const params = event && event.parameter ? event.parameter : {};
     const enrollment = validateEnrollment(params.enrollment);
     const gender = String(params.gender || '').trim();
     const dob = String(params.dob || '').trim();

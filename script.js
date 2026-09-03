@@ -49,8 +49,10 @@ const submitDetails = async (event, enrollment) => {
   submitButton.textContent = 'Submitting...';
 
   try {
-    const body = new URLSearchParams({ action: 'submit', enrollment, gender, dob, category });
-    const response = await fetch(API_URL, { method: 'POST', body });
+    // Apps Script web apps redirect requests; a simple GET avoids browser CORS failures after that redirect.
+    const query = new URLSearchParams({ action: 'submit', enrollment, gender, dob, category });
+    const response = await fetch(`${API_URL}?${query}`);
+    if (!response.ok) throw new Error(`Request failed with status ${response.status}`);
     const data = await response.json();
     if (!data.success) {
       if (data.code === 'ALREADY_SUBMITTED') return renderLocked();

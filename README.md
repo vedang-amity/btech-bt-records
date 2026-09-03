@@ -76,7 +76,7 @@ This protects partial records too: a row containing only Gender, only DOB, or on
 
 Search: `GET ?action=search&enrollment=A20204126026`
 
-Submit: `POST` form fields `action=submit`, `enrollment`, `gender`, `dob`, and `category`.
+Submit: the browser uses a simple `GET` request with `action=submit`, `enrollment`, `gender`, `dob`, and `category` so GitHub Pages can read the Apps Script response after its web-app redirect. The backend also supports the equivalent `POST` form request for direct/API clients.
 
 The backend accepts only `Male`, `Female`, `Other`; only `GEN`, `OBC-CL`, `OBC-NCL`, `SC`, `ST`; and a real ISO date that is not in the future.
 
