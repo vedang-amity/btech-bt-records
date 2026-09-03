@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Student Registration Details Portal">
+  <title>Student Registration Details</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page-shell">
+    <section class="portal-card" aria-labelledby="page-title">
+      <div class="brand-mark" aria-hidden="true">SR</div>
+      <p class="eyebrow">Student services</p>
+      <h1 id="page-title">Student Registration Details</h1>
+      <p class="subtitle">Enter your Enrollment Number to access your registration details.</p>
+
+      <div id="status" class="status" role="status" aria-live="polite" hidden></div>
+
+      <form id="search-form" class="search-form" novalidate>
+        <label for="enrollment">Enrollment Number</label>
+        <div class="input-action-row">
+          <input id="enrollment" name="enrollment" type="text" placeholder="Enter your Enrollment Number" autocomplete="off" maxlength="80" required>
+          <button id="search-button" class="button button-primary" type="submit">Search Student</button>
+        </div>
+      </form>
+
+      <section id="result" hidden></section>
+    </section>
+    <footer>Made by Shivam Binadal and Vedang Soni</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
