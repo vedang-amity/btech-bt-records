@@ -7,6 +7,8 @@ const CONFIG = Object.freeze({
   CATEGORIES: ['GEN', 'OBC-CL', 'OBC-NCL', 'SC', 'ST']
 });
 
+const API_URL = "https://script.google.com/macros/s/AKfycbzbdOYF0q5Z97Z9E8D6NhiUWzAsw7PXB8TazyRORIBwIQwhSccGCg5r-muHq01zk-Mn/exec";
+
 function doGet(event) {
   try {
     const params = event && event.parameter ? event.parameter : {};
