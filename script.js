@@ -68,7 +68,83 @@ const submitDetails = async (event, enrollment) => {
 };
 
 const renderLocked = () => {
-  setResult(`<div class="locked"><h2>Details Already Submitted</h2><p>Your Gender, Date of Birth and Category details have already been submitted.</p><p>You can submit these details only once.</p><p>If you believe there is an error, please contact your CR.</p></div>`);
+  setResult(`<div class="locked"><!-- Duplicate Entry Funny Message -->
+<div id="duplicateMessage" class="duplicate-box">
+    <div class="emoji">🚨😂</div>
+
+    <h2>BHAI RUK JAA! 🚨</h2>
+
+    <p>
+        Ye form tum <strong>already ek baar bhar chuke ho!</strong> 😂
+    </p>
+
+    <p>
+        Dobara bharne ki koshish karke tum kya prove karna chahte ho? 💀<br>
+        <strong>Ki tumhara pehla answer galat tha ya tumhari memory?</strong> 😭
+    </p>
+
+    <div class="system-message">
+        📋 System bol raha hai:<br>
+        <strong>“Bhai, ek baar hi kaafi tha… itna bhi serious mat ho.”</strong> 😂
+    </div>
+
+    <p class="status">
+        ❌ Duplicate Entry Detected<br>
+        🧠 Common Sense Not Detected
+    </p>
+
+    <p class="bottom-text">
+        Please go back before the form gets personally offended. 😂
+    </p>
+</div>
+
+<style>
+    .duplicate-box {
+        max-width: 500px;
+        margin: 50px auto;
+        padding: 30px;
+        text-align: center;
+        font-family: Arial, sans-serif;
+        background: #fff;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        border: 2px solid #ff4444;
+    }
+
+    .emoji {
+        font-size: 50px;
+        margin-bottom: 10px;
+    }
+
+    .duplicate-box h2 {
+        color: #e53935;
+        margin-bottom: 20px;
+    }
+
+    .duplicate-box p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #333;
+    }
+
+    .system-message {
+        margin: 20px 0;
+        padding: 15px;
+        background: #fff3cd;
+        border-radius: 12px;
+        color: #664d03;
+    }
+
+    .status {
+        font-weight: bold;
+        color: #d32f2f !important;
+    }
+
+    .bottom-text {
+        font-weight: bold;
+        font-size: 14px !important;
+    }
+</style></div>`);
 };
 
 const renderStudent = (data, enrollment) => {
